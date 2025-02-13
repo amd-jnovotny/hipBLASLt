@@ -1,6 +1,6 @@
 .. meta::
    :description: hipBLASLt API reference
-   :keywords: hipBLASLt, ROCm, library, API, tool, reference
+   :keywords: hipBLASLt, ROCm, library, API, reference
 
 .. _api-reference:
 

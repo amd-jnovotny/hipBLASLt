@@ -1,15 +1,15 @@
 .. meta::
    :description: How to use the hipBLASLt offline tuning utility
-   :keywords: hipBLASLt, ROCm, library, API, tool, tuning, GEMM, offline tuning, utility
+   :keywords: hipBLASLt, ROCm, library, API, tuning, GEMM, offline tuning, utility
 
 .. _how-to-use-hipblaslt-offline-tuning:
 
 ********************************
-Using hipBLASLt Offline Tuning
+Using hipBLASLt offline tuning
 ********************************
 
-``hipblaslt-bench`` can be used to find the best-performing GEMM kernel for a given set of GEMM problems.
-It provides the best solution index for a given problem size.
+``hipblaslt-bench`` can help find the best-performing GEMM kernel for a given set of GEMM problems
+and provide the best solution index for a given problem size.
 This index can be used directly in future GEMM calls through the User Offline Tuning mechanism.
 However, these indices cannot be reused across library releases or across different device architectures.
 
@@ -21,7 +21,6 @@ Using hipblaslt-bench to run the tuning with the best GEMM kernel
 To find and use the best GEMM kernel for a problem, follow these steps:
 
 #. Generate the tuning command line by setting the environment variable ``HIPBLASLT_LOG_MASK=32`` before calling any hipBLASLt APIs. For more details on how to use ``hipblaslt-bench``, see :ref:`Logging and heuristics <logging-heuristics>`.
-
    In the Bash shell, set the following environment variable:
 
    .. code-block:: bash
@@ -79,7 +78,7 @@ To find and use the best GEMM kernel for a problem, follow these steps:
 
       export HIPBLASLT_TUNING_OVERRIDE_FILE=tuning.txt
    
-   For example, you can use ``hisblaslt-bench`` with ``algo_method`` set to ``heuristic`` to obtain the solutions for a problem,
+   For example, you can use ``hipblaslt-bench`` with ``algo_method`` set to ``heuristic`` to obtain the solutions for a problem,
    which include the best tuning solution index.
 
    .. code-block:: bash

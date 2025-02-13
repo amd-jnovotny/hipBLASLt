@@ -8,7 +8,7 @@
 hipBLASLt documentation
 ===========================
 
-hipBLASLt is a library that provides General Matrix-Matrix (GEMM) operations with flexible APIs and extends functionalities beyond the traditional BLAS library.
+hipBLASLt is a library that provides General Matrix-Matrix (GEMM) operations with flexible APIs and extends functionality beyond the traditional BLAS library.
 To learn more, see :doc:`What is hipBLASLt?<./what-is-hipBLASLt>`
 
 The hipBLASLt public repository is located at `<https://github.com/ROCm/hipBLASLt>`_.
@@ -36,6 +36,7 @@ The hipBLASLt public repository is located at `<https://github.com/ROCm/hipBLASL
 
   .. grid-item-card:: Examples
 
+    * :doc:`Code Samples <./samples/samples>`
     * `hipBLASLt client examples <https://github.com/ROCm/hipBLASLt/tree/develop/clients/samples>`_
 
   .. grid-item-card:: API reference

@@ -1,12 +1,12 @@
 .. meta::
    :description: Source code organization and structure for the hipBLASLt library
-   :keywords: hipBLASLt, ROCm, library, API, tool, source code, structure, organization
+   :keywords: hipBLASLt, ROCm, library, API, source code, structure, organization
 
 .. _source-code-organization:
 
-********************************
-Library source code organization
-********************************
+******************************************
+hipBLASLt library source code organization
+******************************************
 
 The hipBLASLt source code resides in the following two directories:
 
@@ -44,11 +44,11 @@ Infrastructure
 --------------
 
 *  ``CMake`` is used to build and package hipBLASLt. There are ``CMakeLists.txt`` files throughout the code.
-*  Doxygen, Breathe, Sphinx, and ReadTheDocs are used to produce the documentation.
-   The documentation is based on these sources:
+*  Doxygen, Breathe, Sphinx, and ReadTheDocs generate the documentation
+   based on these sources:
 
    *  Doxygen comments in the ``include`` files in the ``library/include`` directory.
    *  Files in the ``docs/source`` directory.
 
-*  Jenkins is used to automate Continuous Integration testing.
+*  Jenkins is used to automate continuous integration testing.
 *  ``clang-format`` is used to format the C++ code.

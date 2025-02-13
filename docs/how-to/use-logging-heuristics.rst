@@ -1,6 +1,6 @@
 .. meta::
    :description: How to use the hipBLASLt logging and heuristic utilities
-   :keywords: hipBLASLt, ROCm, library, API, tool, logging, heuristics
+   :keywords: hipBLASLt, ROCm, library, API, logging, heuristics
 
 .. _logging-heuristics:
 

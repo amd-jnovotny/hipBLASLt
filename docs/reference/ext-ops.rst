@@ -1,6 +1,6 @@
 .. meta::
    :description: hipBLASLtExt operation API reference
-   :keywords: hipBLASLt, ROCm, library, API, tool
+   :keywords: hipBLASLt, ROCm, library, tool
 
 .. _ext-ops:
 
@@ -12,27 +12,27 @@ These extensions support the following:
 
 *  ``hipblasltExtSoftmax``
 
-      Softmax for 2D tensor. Currently, it performs softmax on the second dimension of input tensor and assumes the
-      input to be contigious on the second dimension.
-      For sample code, see :ref:`client_extop_softmax`.
+   Softmax for 2D tensor. It performs softmax on the second dimension of input tensor and assumes the
+   input is contigious on the second dimension.
+   For sample code, see :ref:`client_extop_softmax`.
 
 *  ``hipblasltExtLayerNorm``
 
-      Converts a 2D tensor using LayerNorm to generate a new 2D normalized tensor.
-      This is an independent function used to call and get the result.
-      For sample code, see :ref:`sample_hipblaslt_ext_op_layernorm`.
+   Converts a 2D tensor using LayerNorm to generate a new 2D normalized tensor.
+   This is an independent function used to call and get the result.
+   For sample code, see :ref:`sample_hipblaslt_ext_op_layernorm`.
 
 *  ``hipblasltExtAMax``
 
-      Absolute maximum value of a 2D tensor.
-      This is an independent function used to call and get the result.
-      For sample code, see :ref:`sample_hipblaslt_ext_op_amax`.
+   Absolute maximum value of a 2D tensor.
+   This is an independent function used to call and get the result.
+   For sample code, see :ref:`sample_hipblaslt_ext_op_amax`.
 
 *  ``hipblasltExtAMaxWithScale``
 
-      Absolute maximum value and scaled output of a 2D tensor.
-      This is an independent function used to call and get the result.
-      For sample code, see :ref:`sample_hipblaslt_ext_op_amax_with_scale`.
+   Absolute maximum value and scaled output of a 2D tensor.
+   This is an independent function used to call and get the result.
+   For sample code, see :ref:`sample_hipblaslt_ext_op_amax_with_scale`.
 
 These APIs are explained in detail below.
 

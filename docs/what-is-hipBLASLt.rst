@@ -7,14 +7,14 @@
 What is hipBLASLt?
 ====================
 
-hipBLASLt is a library that provides GEMM operations with flexible APIs and extends functionalities beyond the traditional BLAS library.
-hipBLASLt exposes APIs in the HIP programming language with an underlying optimized generator as a backend kernel provider.
+hipBLASLt is a library that provides GEMM operations with flexible APIs and extends functionality beyond the traditional BLAS library.
+hipBLASLt provides APIs in the :doc:`HIP programming language<hip:index>` with an underlying optimized generator as a backend kernel provider.
 
-The library adds flexibility for matrix data layouts, input types, and compute types, and
-in choosing the algorithmic implementations and heuristics through parameter programmability.
-After identifying a set of options for the intended GEMM operations, you can use these options repeatedly for different inputs.
+The library adds flexibility for matrix data layouts, input types, and compute types and
+for choosing the algorithmic implementations and heuristics through parameter programmability.
+After identifying a set of options for the intended GEMM operations, you can repeatedly use these options for different inputs.
 
-The GEMM operation of hipBLASLt is performed by :ref:`hipblasltmatmul`. Here is the equation:
+The GEMM operation of hipBLASLt is performed by :ref:`hipblasltmatmul` using this equation:
 
 .. math::
 

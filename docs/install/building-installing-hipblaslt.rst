@@ -1,6 +1,6 @@
 .. meta::
    :description: Installation instructions for the hipBLASLt library
-   :keywords: hipBLASLt, ROCm, library, API, tool, installation, build
+   :keywords: hipBLASLt, ROCm, library, API, installation, build
 
 .. _installation:
 
@@ -8,7 +8,7 @@
 Building and installing hipBLASLt
 *********************************
 
-This document provides all the information required to build and install hipBLASLt on Linux systems.
+This document includes details on how to build and install hipBLASLt on Linux systems.
 
 Prerequisites
 =============
@@ -21,8 +21,8 @@ To install hipBLASLt, your system must include these components:
 Installing prebuilt packages
 =============================
 
-Download prebuilt packages from the native package manager for your distribution.
-For more information, see the :doc:`ROCm quick-start installation guide <rocm-install-on-linux:install/quick-start>`.
+Download the prebuilt packages from the native package manager for your distribution.
+For more information, see the :doc:`ROCm quick start installation guide <rocm-install-on-linux:install/quick-start>`.
 
 .. code-block:: bash
 
@@ -37,8 +37,10 @@ The following sections explain how to use the ``install.sh`` script, including t
 Building the library dependencies and library
 ---------------------------------------------
 
-The root of the hipBLASLt repository contains the helper bash script ``install.sh`` for building and installing hipBLASLt with a single command.  It takes a lot of options and hard-coded configuration that can be specified through invoking cmake directly, but it's a great way to get started quickly and can serve as an example of how to build/install.
-A few commands in the script require ``sudo`` access, so it might prompt you for a password.
+The root of the hipBLASLt `GitHub repository <https://github.com/ROCm/hipBLASLt>`_ contains the ``install.sh`` Bash script for building and installing hipBLASLt with a single command.
+It includes several options and hard-coded configuration items that can be specified through invoking CMake directly,
+but it's a great way to get started quickly and can serve as an example showing how to build and install hipBLASLt.
+A few commands in the script require ``sudo`` access, which might prompt you for a password.
 
 Some typical examples showing how to use ``install.sh`` to build the library dependencies and library are
 listed in the table below:
@@ -49,7 +51,7 @@ listed in the table below:
 
    "``./install.sh -h``", "Help information."
    "``./install.sh -d``", "Build the library and dependencies in your local directory. The ``-d`` flag only needs to be used once. For subsequent invocations of ``install.sh``, it's not necessary to rebuild the dependencies."
-   "``./install.sh``", "Build the library in your local directory. It is assumed the dependencies are already built."
+   "``./install.sh``", "Build the library in your local directory. This assumes the dependencies are already built."
    "``./install.sh -i``", "Build the library, then build and install the hipBLASLt package in  ``/opt/rocm/hipblaslt``. This prompts you for  ``sudo`` access and installs it for all users. To keep hipBLASLt in your local directory, don't use the flag."
 
 Building the library, client, and all dependencies
@@ -66,7 +68,7 @@ Executable Name                Description
 ============================= ========================================================
 
 Common ways to use ``install.sh`` to build the dependencies, library, and client are
-listed in this table.
+listed in the table below:
 
 .. csv-table::
    :header: "Command","Description"
@@ -74,7 +76,7 @@ listed in this table.
 
    "``./install.sh -h``", "Help information."
    "``./install.sh -dc``", "Build the library dependencies, client dependencies, library, and client in your local directory. The ``-d`` flag only needs to be used once. For subsequent invocations of ``install.sh``, it's not necessary to rebuild the dependencies."
-   "``./install.sh -c``", "Build the library and client in your local directory. It is assumed the dependencies are already built."
+   "``./install.sh -c``", "Build the library and client in your local directory. This assumes the dependencies are already built."
    "``./install.sh -idc``", "Build the library dependencies, client dependencies, library, and client, then build and install the hipBLASLt package. This prompts you for  ``sudo`` access. To install it for all users,  use the ``-i`` flag. To keep hipBLASLt in your local directory, don't use the flag."
    "``./install.sh -ic``", "Build and install the hipBLASLt package and build the client. This prompts you for ``sudo`` access and installs it for all users. To keep hipBLASLt in your local directory, don`t use the flag."
 
@@ -105,7 +107,7 @@ Building the library manually
 Before building hipBLASLt manually, ensure the following dependencies are installed on your system:
 
 *  The `hipBLAS-common <https://github.com/ROCm/hipBLAS-common>`_ header files.
-*  The `roctracer (roctx) <https://github.com/ROCm/roctracer>`_ library (this is typically pre-installed, but if not, install it).
+*  The `ROC-tracer (ROC-TX) <https://github.com/ROCm/roctracer>`_ library (this is typically pre-installed).
 
 Building hipBLASLt
 ^^^^^^^^^^^^^^^^^^^^
@@ -134,7 +136,7 @@ Dependencies for the hipBLASLt clients
 The hipBLASLt samples have no external dependencies, but the unit test and benchmarking applications do.
 These clients introduce the following dependencies:
 
-- `LAPACK <https://github.com/Reference-LAPACK/lapack-release>`_,  which itself add a dependency on a Fortran compiler
+- `LAPACK <https://github.com/Reference-LAPACK/lapack-release>`_,  which adds a dependency on a Fortran compiler
 - `GoogleTest <https://github.com/google/googletest>`_
 
 .. _building-hipblaslt-clients:
@@ -143,11 +145,11 @@ Building the hipBLASLt clients
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 GoogleTest and LAPACK are not easy to install. Many Linux distributions don't provide a GoogleTest package
-with precompiled libraries and the LAPACK packages don't have the necessary ``cmake`` configuration files
-to allow ``cmake`` to configure the links with the ``cblas`` library. hipBLASLt provides a ``cmake`` script that builds
-the above dependencies from source. This is an optional step. You can provide your own builds for
+with precompiled libraries and the LAPACK packages don't have the necessary CMake configuration files
+to allow the ``cmake`` command to configure links with the ``cblas`` library. hipBLASLt provides an optional CMake script that builds
+the above dependencies from source. You can provide your own builds for
 these dependencies and help ``cmake`` find them by setting the ``CMAKE_PREFIX_PATH`` definition.
-Follow this sequence of steps to build the dependencies and install them to the ``cmake`` default ``/usr/local`` directory.
+Follow this sequence of steps to build the dependencies and install them to the default CMake directory ``/usr/local``.
 
 #. Build the dependencies from source (optional).
 
@@ -159,8 +161,8 @@ Follow this sequence of steps to build the dependencies and install them to the 
       make -j$(nproc) install
 
 #. After the dependencies are available on the system, configure the clients to build.
-   This requires adding a few extra flags to the library ``cmake`` configure script.
-   If the dependencies are not installed into the system default directories, like ``/usr/local``,
+   This requires adding a few extra flags to the library CMake configuration script.
+   If the dependencies are not installed in the system default directories, like ``/usr/local``,
    pass the ``CMAKE_PREFIX_PATH`` to ``cmake`` to help CMake find them.
 
    .. code-block:: bash

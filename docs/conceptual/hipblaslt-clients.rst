@@ -1,11 +1,11 @@
 .. meta::
    :description: Information about the clients for the hipBLASLt library
-   :keywords: hipBLASLt, ROCm, library, API, tool, clients, test, benchmark
+   :keywords: hipBLASLt, ROCm, library, API, clients, test, benchmark
 
 .. _clients:
 
 ============================
-Clients
+hipBLASLt clients
 ============================
 
 The following client executables are available for use with hipBLASLt:
@@ -14,15 +14,15 @@ The following client executables are available for use with hipBLASLt:
 
 *  ``hipblaslt-bench``
 
-To build these clients, follow the instructions in :doc:`Building and install hipBLASLt <../install/building-installing-hipblaslt>`.
-After building the hipBLASLt clients, you can find them in the ``hipBLASLt/build/release/clients/staging`` directory .
+To build these clients, follow the instructions in :doc:`Building and installing hipBLASLt <../install/building-installing-hipblaslt>`.
+After building the hipBLASLt clients, you can find them in the ``hipBLASLt/build/release/clients/staging`` directory.
 
 Here is a brief explanation of each hipBLASLt client and how to use it.
 
 hipblaslt-test
 ============================
 
-``hipblaslt-test`` is the main regression gtest for hipBLASLt. All test items must pass.
+``hipblaslt-test`` is the main GoogleTest-based regression suite for hipBLASLt. All test items must pass.
 
 To run the full selection of test items, use this command:
 
@@ -36,7 +36,7 @@ To run a partial subsection of the test items using a filter, run this command:
 
    ./hipblaslt-test --gtest_filter=<test pattern>
 
-For a demo "quick" test, use the following command:
+For a "quick"-level demo test, use the following command:
 
 .. code-block:: bash
 
@@ -45,8 +45,8 @@ For a demo "quick" test, use the following command:
 hipblaslt-bench
 ============================
 
-``hipblaslt-bench`` is used to measure the performance and to verify the correctness of the hipBLASLt functions.
-It has a command line interface for ease of use.
+``hipblaslt-bench`` measurs the performance and verifies the correctness of the hipBLASLt functions.
+It includes a command line interface for ease of use.
 
 For example, to run ``fp32`` GEMM with validation, use this command:
 

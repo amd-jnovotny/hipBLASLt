@@ -1,11 +1,11 @@
 .. meta::
    :description: How to use the hipBLASLt tuning utility
-   :keywords: hipBLASLt, ROCm, library, API, tool, tuning, utility
+   :keywords: hipBLASLt, ROCm, library, API, tuning, utility
 
 .. _how-to-use-hipblaslt-tuning-utility:
 
 **********************************
-Using the hipBLASLt Tuning Utility
+Using the hipBLASLt tuning utility
 **********************************
 
 hipBLASLt includes a simple tuning utility that uses the existing kernel pools to search for the best solution for a given problem size.
@@ -13,7 +13,8 @@ hipBLASLt includes a simple tuning utility that uses the existing kernel pools t
 The template.yaml file
 =================================
 
-The ``template.yaml`` file is found in the ``utilities`` directory.
+The ``template.yaml`` file is found in the ``utilities`` directory. Download and modify this file to use it as
+input for the ``find_exact.py`` script, as described below.
 
 .. code-block:: yaml
 
@@ -48,18 +49,28 @@ To run the tuning utility, use the ``find_exact.py`` script, which is found in t
 
 Follow these steps to run the tuning:
 
-#. Run ``./install.sh`` first. See :ref:`installation` for more details.
-#. Ensure the ``MatchTable.yaml`` file exists in ``build/release/library``.
-#. Run the command ``python3 find_exact.py <your yaml file> <hipblaslt_root_folder>/build/release <output folder>``
+#. Run the install script. See :ref:`installation` for more details.
 
-   The utility generates the following message. This example is for NN FP32 tuning:
+   .. code-block:: bash
+
+      ./install.sh
+
+#. Ensure the ``MatchTable.yaml`` file exists in the ``build/release/library`` directory.
+
+#. Run the ``find_exact.py`` command with the following parameters:
+
+   .. code-block:: bash
+
+      python3 find_exact.py <your yaml file> <hipblaslt_root_folder>/build/release <output folder>
+
+   The utility generates a message like the one shown below. This example is for NN ``FP32`` tuning:
 
    .. code-block:: bash
 
       Running benchmarks
       --Running size: result_NN_SSS_128x128x128.txt
 
-   After the tuning completes, the following summary appears:
+   After the tuning completes, the script generates the following summary:
 
    .. code-block:: bash
 
@@ -67,11 +78,11 @@ Follow these steps to run the tuning:
       --Reading matching table: <hipblaslt_root_folder>/build/release/library/MatchTable.yaml
       --Reading bench files
       --Found file <output folder>/0_Bench/result_NN_SSS_88x12x664.txt
-      Writing logic yaml files: 100%|███████| 1/1 [00:05<00:00,  5.69s/it]
+      Writing logic yaml files: 100%|    | 1/1 [00:05<00:00,  5.69s/it]
 
 #. Review the results. The final structure of the output folder looks like this:
 
-   .. image:: images/hipblaslt-tuning-folder-structure.png
+   .. image:: ../images/hipblaslt-tuning-folder-structure.png
 
    The ``0_Bench`` folder stores the raw benchmark results. The ``1_LogicYaml`` folder stores the output,
    which is a tuned equality logic YAML file.
