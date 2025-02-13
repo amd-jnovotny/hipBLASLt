@@ -13,7 +13,7 @@ These extensions support the following:
 *  ``hipblasltExtSoftmax``
 
    Softmax for 2D tensor. It performs softmax on the second dimension of input tensor and assumes the
-   input is contigious on the second dimension.
+   input is contiguous on the second dimension.
    For sample code, see :ref:`client_extop_softmax`.
 
 *  ``hipblasltExtLayerNorm``
@@ -24,13 +24,13 @@ These extensions support the following:
 
 *  ``hipblasltExtAMax``
 
-   Absolute maximum value of a 2D tensor.
+   Determines the absolute maximum value of a 2D tensor.
    This is an independent function used to call and get the result.
    For sample code, see :ref:`sample_hipblaslt_ext_op_amax`.
 
 *  ``hipblasltExtAMaxWithScale``
 
-   Absolute maximum value and scaled output of a 2D tensor.
+   Determines the absolute maximum value and scaled output of a 2D tensor.
    This is an independent function used to call and get the result.
    For sample code, see :ref:`sample_hipblaslt_ext_op_amax_with_scale`.
 

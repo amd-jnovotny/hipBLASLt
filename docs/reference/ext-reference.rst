@@ -129,7 +129,7 @@ Here are the three use cases supported by the hipBLASLtExt APIs.
 
 .. _Gemm:
 
-Gemm
+GEMM
 --------------
 
 hipblasLt has its own instance. You must assign the problem type when constructing or importing the problem from the hipBLAS API.
@@ -161,7 +161,7 @@ hipblasLt has its own instance. You must assign the problem type when constructi
 After the instance is created, you can set the problem using the API.
 The API might require the following structures:
 
-*  ``GemmProblemType`` allows you to change the problem type after the instance is initialized.
+*  ``GemmProblemType``: This lets you to change the problem type after the instance is initialized.
 
    .. note::
 
@@ -180,7 +180,7 @@ The API might require the following structures:
          hipblasComputeType_t type_compute;
       };
 
-*  ``GemmEpilogue`` allows the user to control the epilogue of the problem.
+*  ``GemmEpilogue``: This lets you control the epilogue of the problem.
 
    .. note::
   
@@ -196,7 +196,7 @@ The API might require the following structures:
          int                 aux_stride;
       };
 
-*  ``GemmInputs`` specifies the problem inputs.
+*  ``GemmInputs``: This specifies the problem inputs.
 
    .. note::
   
@@ -246,9 +246,9 @@ You can set the leading dimensions and strides and reassign the data type using 
 
 You can import problems from the hipblasLt APIs after the instance is created.
 
-   .. note::
+.. note::
 
-      This can overwrite the problem type of the instance.     
+   This can overwrite the problem type of the instance.     
 
 .. code-block:: c++
 
@@ -264,7 +264,7 @@ You can import problems from the hipblasLt APIs after the instance is created.
                                                 void*                   D,
                                                 hipblasLtMatrixLayout_t matD);
 
-You can get heuristics and make kernel arguments with the instance. If the properties of the GEMM and the inputs don't change,
+You can retrieve heuristics and set kernel arguments with the instance. If the properties of the GEMM and the inputs don't change,
 you can call the run API to launch the kernel directly.
 
 .. code-block:: c++
@@ -358,7 +358,7 @@ The grouped GEMM class also includes the ``setProblem`` APIs.
                                                 std::vector<void*>&                   D,
                                                 std::vector<hipblasLtMatrixLayout_t>& matD);
 
-For the following API, the ``epilogue`` argument supports broadcasting. They are broadcasted to the length of the problem size
+For the following API, the ``epilogue`` argument supports broadcasting to the length of the problem size
 by duplicating the last element.
 
 .. code-block:: c++
@@ -381,7 +381,7 @@ by duplicating the last element.
 
 .. note::
 
-   Only a ``problemtype`` size equal to 1 is currently supported. (Only one ``GemmProblemTypeV2`` for all problems.)
+   Only a ``problemtype`` size equal to 1 is currently supported. (This means only one ``GemmProblemTypeV2`` for all problems.)
 
 .. code-block:: c++
 
@@ -437,7 +437,7 @@ To change the size-related arguments ``m``, ``n``, ``k``, and ``batch``, see :re
         int      activationType; //!< The activation type.  Only works if mode is set to activation related epilogues.
     } __attribute__((packed));
 
-hipBLASLt adds two functions for the ``UserArguments``-related API. The first API is a helper function that helps you initialize
+hipBLASLt adds two functions to the ``UserArguments``-related API. The first API is a helper function that helps you initialize
 the ``UserArguments`` structure from the saved problems inside the grouped GEMM object.
 The second API is an overload function with an additional ``UserArguments`` device pointer input.
 
@@ -508,7 +508,7 @@ Here is a simple example that shows how this API works.
     // Once you get the default value here, you can make several copies and change the values
     // from the host
 
-    // Next Copy them to the device memory
+    // Next copy them to the device memory
     hipblaslt_ext::UserArguments* d_dUAFloat = nullptr;
     hipMalloc(&d_dUAFloat, sizeof(hipblaslt_ext::UserArguments) * gemm_count);
     hipMemcpy(d_dUAFloat, dUAFloat, sizeof(hipblaslt_ext::UserArguments) * gemm_count, hipMemcpyHostToDevice);
@@ -541,7 +541,7 @@ This is the base class for ``Gemm`` and ``GroupedGemm``.
 
 .. code-block:: c++
 
-    // Gets huesristic from the instance.
+    // Gets heuristic from the instance.
     HIPBLASLT_EXPORT hipblasStatus_t algoGetHeuristic(const int                                      requestedAlgoCount,
                                                       const GemmPreferenceV2&                        pref,
                                                       std::vector<hipblasLtMatmulHeuristicResult_t>& heuristicResults);
@@ -577,7 +577,7 @@ It requires the transpose of A, B, the data type of the inputs, and the compute 
                                                hipblasComputeType_t                         typeCompute,
                                                std::vector<hipblasLtMatmulHeuristicResult_t>& heuristicResults);
 
-This API doesn't require a problem size or epilogue as input. It uses another API ``isAlgoSupported`` to check
+This API doesn't require a problem size or epilogue as input. It uses another API named ``isAlgoSupported`` to check
 if the algorithm supports a problem.
 
 .. code-block:: c++
@@ -585,7 +585,7 @@ if the algorithm supports a problem.
     hipblaslt_ext::matmulIsAlgoSupported()
     gemm.isAlgoSupported()
 
-The API returns the required workspace size in bytes on successful completion.
+The API returns the required workspace size in bytes upon successful completion.
 
 .. code-block:: c++
 
@@ -629,14 +629,14 @@ The API returns the required workspace size in bytes on successful completion.
 Algorithm index
 -----------------
 
-This extension API allows you to get the algorithm index using ``hipblasLtMatmulAlgo_t``.
+This extension API lets you to get the algorithm index using ``hipblasLtMatmulAlgo_t``.
 
 .. code-block:: c++
 
     HIPBLASLT_EXPORT int getIndexFromAlgo(hipblasLtMatmulAlgo_t& algo);
 
 
-It supports using an index vector to retrieve the heuristic results.
+You can use an index vector to retrieve the heuristic results.
 
 .. code-block:: c++
 
@@ -646,10 +646,10 @@ It supports using an index vector to retrieve the heuristic results.
                           std::vector<int>&                              algoIndex,
                           std::vector<hipblasLtMatmulHeuristicResult_t>& heuristicResults);
 
-Sample codes
+Sample code
 =================
 
-Here is sample code that demonstrates the use cases of the extension APIs.
+This section contains some code samples that demonstrate the use cases of the extension APIs.
 
 GEMM
 ---------

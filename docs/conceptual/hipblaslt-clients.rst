@@ -45,7 +45,7 @@ For a "quick"-level demo test, use the following command:
 hipblaslt-bench
 ============================
 
-``hipblaslt-bench`` measurs the performance and verifies the correctness of the hipBLASLt functions.
+``hipblaslt-bench`` measures the performance and verifies the correctness of the hipBLASLt functions.
 It includes a command line interface for ease of use.
 
 For example, to run ``fp32`` GEMM with validation, use this command:
