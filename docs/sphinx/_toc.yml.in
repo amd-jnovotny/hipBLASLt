@@ -27,6 +27,8 @@ subtrees:
     title: Use hipBLASLt offline tuning
   - file: how-to/use-logging-heuristics
     title: Use logging and heuristics
+  - file: how-to/how-to-use-streamk
+    title: Use Stream-K with hipBLASLt
 
 - caption: Examples
   entries:

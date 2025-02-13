@@ -33,6 +33,7 @@ The hipBLASLt public repository is located at `<https://github.com/ROCm/hipBLASL
     * :doc:`Use the hipBLASLt tuning utility <./how-to/how-to-use-hipblaslt-tuning-utility>`
     * :doc:`Use hipBLASLt offline tuning <./how-to/how-to-use-hipblaslt-offline-tuning>`
     * :doc:`Use logging and heuristics <./how-to/use-logging-heuristics>`
+    * :doc:`Use Stream-K with hipBLASLt <./how-to/how-to-use-streamk>`
 
   .. grid-item-card:: Examples
 
