@@ -149,7 +149,8 @@ For ``FP8`` type Matmul, hipBLASLt supports the type combinations shown in the f
 |       |       | BF8   | BF8   |             |          |          | FP32, FP16 | FP16      |
 +-------+-------+-------+-------+-------------+----------+----------+------------+-----------+
 
-To use FP16-specific data ordering `HIPBLASLT_ORDER_COL16_4R8` in `hipblasLtMatmul` for the gfx94x architecture, choose one of these valid combinations of transposes and orders of input and output matrices:
+To use FP16-specific data ordering ``HIPBLASLT_ORDER_COL16_4R8`` in ``hipblasLtMatmul`` for the gfx94x architecture,
+choose one of these valid combinations of transposes and orders of input and output matrices:
 
 +-------+-------+-------+-------+-----------------------------+-----------------------------+---------------------+---------------------+
 | Atype | Btype | opA   |  opB  |  orderA                     |  orderB                     |  orderC             |   orderD            |
